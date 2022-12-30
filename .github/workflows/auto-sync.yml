@@ -12,6 +12,6 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/hiepvuhoang/test-postman/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -H "Authorization: token ${{ ACTIONS_KEY }}" \
+          -H "Authorization: token ${{ secrets.ACTIONS_KEY }}" \
           --data '{"event_type": "Trigger TestOps auto sync", "client_payload": { "repository": "'"https://github.com/hiepvuhoang/test-postman"'" }}'
       - uses: actions/checkout@v3
