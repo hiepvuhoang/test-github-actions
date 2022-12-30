@@ -1,5 +1,6 @@
 name: Trigger auto sync
 on:
+  workflow_dispatch:
   push:
     branch:
       - master
@@ -11,6 +12,7 @@ jobs:
       - name: check secrets exist
         run: |
           echo "action key: ${{ secrets.ACTIONS_KEY }}"
+          
       - name: Trigger TestOps auto sync
         run: |
           curl \
