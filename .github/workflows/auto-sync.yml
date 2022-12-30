@@ -13,7 +13,7 @@ jobs:
           echo "action key: ${{ secrets.ACTIONS_KEY }}"
       - name: Trigger TestOps auto sync
         run: |
-          curl -X POST --http2 https://api.github.com/repos/hiepvuhoang/test-postman/dispatches \
+          curl -X POST --http1 https://api.github.com/repos/hiepvuhoang/test-postman/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -H "Authorization: token ${{ secrets.ACTIONS_KEY }}" \
           --data '{"event_type": "Trigger TestOps auto sync", "client_payload": { "repository": "'"https://github.com/hiepvuhoang/test-postman"'" }}'
