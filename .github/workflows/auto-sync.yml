@@ -1,0 +1,17 @@
+name: Trigger auto sync
+on:
+  push:
+    branch:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger TestOps auto sync
+        run: |
+          curl -X POST https://api.github.com/repos/hiepvuhoang/test-postman/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -H "Authorization: token ${{ ACTIONS_KEY }}" \
+          --data '{"event_type": "Trigger TestOps auto sync", "client_payload": { "repository": "'"https://github.com/hiepvuhoang/test-postman"'" }}'
+      - uses: actions/checkout@v3
